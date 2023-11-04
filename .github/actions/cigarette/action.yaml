@@ -4,3 +4,6 @@ outputs:
   noOfcigarette: # 
     description: 'No of cigararttes required '
     value: 'This is value'
+runs:
+  using: 'node20'
+  main: 'index.js'
