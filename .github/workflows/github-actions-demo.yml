@@ -10,8 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - run: ls ./ -a
+      - run: cd ./cigarette
       - name: Hello world action step
-        uses: "cigarette" # Uses an action in the root directory
+        uses: "./" # Uses an action in the root directory
         id: hello
       # Use the output from the `hello` step
       # - name: Get the output time
