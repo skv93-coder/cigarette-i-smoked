@@ -9,6 +9,7 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v4
+      - run: ls ./
       - name: Hello world action step
         uses: ./actions/cigarette # Uses an action in the root directory
         id: hello
