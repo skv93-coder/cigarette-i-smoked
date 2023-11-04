@@ -8,8 +8,8 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v4
-      - run: ls ./ -a
+      - uses: actions/checkout@v4
+      # - run: ls ./ -a
       - name: Hello world action step
         uses: ./.github/actions/cigarette # Uses an action in the root directory
         id: hello
