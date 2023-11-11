@@ -7,6 +7,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Count pollution cigarett
+        uses: "./" # Uses an action in the root directory
+        id: hello
+      - name: echo the pm25 in delhi
+        run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
       - name: Commit files
         run: git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com" && git config --local user.name "github-actions[bot]" && git commit -a -m "Add changes"
       - name: Push changes
@@ -15,8 +20,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
       - run: ls ./ -a
-      - name: Count pollution cigarett
-        uses: "./" # Uses an action in the root directory
-        id: hello
-      - name: echo the pm25 in delhi
-        run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
