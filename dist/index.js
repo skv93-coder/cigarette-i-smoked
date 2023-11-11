@@ -30179,6 +30179,7 @@ const github = __nccwpck_require__(586);
 const { fetch } = __nccwpck_require__(9605);
 const fs = __nccwpck_require__(3292);
 const data = __nccwpck_require__(7341);
+
 (async function () {
   try {
     // `who-to-greet` input defined in action metadata file
@@ -30202,8 +30203,12 @@ const data = __nccwpck_require__(7341);
       "noOfcigarette",
       jsonRes.list[0].components.pm2_5
     );
-    const newData = { ...data, newField: jsonRes.list[0].components.pm2_5 };
+    const newData = {
+      ...data,
+      [new Date().toLocaleDateString()]: jsonRes.list[0].components.pm2_5,
+    };
     console.log("newData", newData);
+    fs.writeFile("../data.json", JSON.stringify(newData));
     core.setOutput("noOfcigarette", jsonRes.list[0].components.pm2_5);
   } catch (error) {
     core.setFailed(error.message);
