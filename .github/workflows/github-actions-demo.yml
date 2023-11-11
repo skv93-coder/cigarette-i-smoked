@@ -14,6 +14,8 @@ jobs:
         run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
       - name: status
         run: git status
+      - name: create file
+        run: touch text.txt
       - name: Commit files
         run: git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com" && git config --local user.name "github-actions[bot]"&& git add . && git commit -a -m "Add changes"
       - name: Push changes
