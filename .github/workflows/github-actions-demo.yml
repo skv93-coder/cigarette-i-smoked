@@ -20,6 +20,8 @@ jobs:
         run: git config --local user.email "shbh541@gmail.com" && git config --local user.name "Shubham Sharma"&& git add . && git commit -a -m "Add changes"
       - name: pushing test
         run: git push
+      - name: echo secret
+        run: echo ${{ secrets.GITHUB_TOKEN }}
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
