@@ -18,11 +18,11 @@ jobs:
         run: touch text.txt
       - name: Commit files
         run: git config --local user.email "shbh541@gmail.com" && git config --local user.name "Shubham Sharma"&& git add . && git commit -a -m "Add changes"
-      # - name: pushing test
-      #   run: git push
+      - name: pushing test
+        run: git push
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: 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
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
       - run: ls ./ -a
