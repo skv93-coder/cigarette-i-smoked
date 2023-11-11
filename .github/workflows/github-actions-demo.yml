@@ -21,6 +21,6 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: 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
           branch: ${{ github.ref }}
       - run: ls ./ -a
