@@ -29957,6 +29957,14 @@ module.exports = require("fs");
 
 /***/ }),
 
+/***/ 3292:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs/promises");
+
+/***/ }),
+
 /***/ 3685:
 /***/ ((module) => {
 
@@ -30115,6 +30123,14 @@ module.exports = require("worker_threads");
 "use strict";
 module.exports = require("zlib");
 
+/***/ }),
+
+/***/ 7341:
+/***/ ((module) => {
+
+"use strict";
+module.exports = {"date":"78"};
+
 /***/ })
 
 /******/ 	});
@@ -30161,9 +30177,8 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(3695);
 const github = __nccwpck_require__(586);
 const { fetch } = __nccwpck_require__(9605);
-const fs = __nccwpck_require__(7147);
-//
-
+const fs = __nccwpck_require__(3292);
+const data = __nccwpck_require__(7341);
 (async function () {
   try {
     // `who-to-greet` input defined in action metadata file
@@ -30187,7 +30202,8 @@ const fs = __nccwpck_require__(7147);
       "noOfcigarette",
       jsonRes.list[0].components.pm2_5
     );
-fs.
+    const newData = { ...data, newField: jsonRes.list[0].components.pm2_5 };
+    console.log("newData", newData);
     core.setOutput("noOfcigarette", jsonRes.list[0].components.pm2_5);
   } catch (error) {
     core.setFailed(error.message);
