@@ -13,9 +13,9 @@ jobs:
       - name: echo the pm25 in delhi
         run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
       - name: status
-        run: git status 
+        run: git status
       - name: Commit files
-        run: git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com" && git config --local user.name "github-actions[bot]" && git commit -a -m "Add changes"
+        run: git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com" && git config --local user.name "github-actions[bot]"&& git add . && git commit -a -m "Add changes"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
