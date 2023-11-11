@@ -26,8 +26,8 @@ const data = require("./data.json");
       "noOfcigarette",
       jsonRes.list[0].components.pm2_5
     );
-    const newData = { ...data, newField: jsonRes.list[0].components.pm2_5 };
-    console.log("newData", newData);
+    // const newData = { ...data, newField: jsonRes.list[0].components.pm2_5 };
+    console.log("newData", data);
     core.setOutput("noOfcigarette", jsonRes.list[0].components.pm2_5);
   } catch (error) {
     core.setFailed(error.message);
