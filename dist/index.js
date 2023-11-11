@@ -30161,6 +30161,8 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(3695);
 const github = __nccwpck_require__(586);
 const { fetch } = __nccwpck_require__(9605);
+const fs = __nccwpck_require__(7147);
+//
 
 (async function () {
   try {
@@ -30185,6 +30187,7 @@ const { fetch } = __nccwpck_require__(9605);
       "noOfcigarette",
       jsonRes.list[0].components.pm2_5
     );
+fs.
     core.setOutput("noOfcigarette", jsonRes.list[0].components.pm2_5);
   } catch (error) {
     core.setFailed(error.message);
