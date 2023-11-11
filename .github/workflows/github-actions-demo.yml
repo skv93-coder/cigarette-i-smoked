@@ -1,28 +1,13 @@
-on: [push]
-
+on: push
 jobs:
-  hello_world_job:
+  build:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Count pollution cigarett
-        uses: "./" # Uses an action in the root directory
-        id: hello
-      - name: echo the pm25 in delhi
-        run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
-      - name: status
-        run: git status
-      - name: create file
-        run: touch text.txt
-      - name: Commit files
-        run: |
-          git config user.name shubham-sharma
-          git config user.email shbh541@gmail.com
+      - uses: actions/checkout@v4
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add .
           git commit -m "generated"
-          git status
           git push
-
-      # - run: ls ./ -a
