@@ -30129,7 +30129,7 @@ module.exports = require("zlib");
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"date":"78","11/12/2023":82.62}');
+module.exports = JSON.parse('{"date":"78","11/12/2023":78}');
 
 /***/ })
 
@@ -30188,27 +30188,16 @@ const data = __nccwpck_require__(7341);
     const time = new Date().toTimeString();
     core.setOutput("time", time);
     const res = await fetch(
-      "https://api.openweathermap.org/data/2.5/air_pollution?lat=28&lon=77&appid=41bef1d1ddc74b3a74a8bc031d21e70d"
+      "https://api.waqi.info/feed/geo:31.64;74.87/?token=40862c856cd1e5b206f1634c8d66f18edeb15900"
     );
     const jsonRes = await res.json();
-    console.log(
-      "jsonRes.list[0].components.pm2_5",
-      jsonRes.list[0].components.pm2_5
-    );
-    // Get the JSON webhook payload for the event that triggered the workflow
-    // const payload = JSON.stringify(github.context.payload, undefined, 2);
-    // console.log(`The event payload: ${payload}`);
-    console.log(
-      '("noOfcigarette", jsonRes.list[0].components.pm2_5)',
-      "noOfcigarette",
-      jsonRes.list[0].components.pm2_5
-    );
+
     const newData = {
       ...data,
-      [new Date().toLocaleDateString()]: jsonRes.list[0].components.pm2_5,
+      [new Date().toLocaleDateString()]: jsonRes.data.iaqi.pm25.v,
     };
     await fs.writeFile("./data.json", JSON.stringify(newData));
-    core.setOutput("noOfcigarette", jsonRes.list[0].components.pm2_5);
+    core.setOutput("noOfcigarette", jsonRes.data.iaqi.pm25.v);
   } catch (error) {
     core.setFailed(error.message);
   }
