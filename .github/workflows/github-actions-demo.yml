@@ -1,6 +1,5 @@
 name: Amuseing way of keeping track of pollution
 on:
-  # Triggers the workflow every 5 minutes
   schedule:
     - cron: "0 8 * * *"
 jobs:
