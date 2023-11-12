@@ -14,12 +14,10 @@ jobs:
         run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
       - name: status
         run: git status
-      - name: create file
-        run: touch text.txt
       - name: Commit files
         run: |
           git config user.name shubham-sharma
           git config user.email shbh541@gmail.com
           git add .
           git commit -m "generated"
-          git push origin --follow-tags --atomic
+          git push

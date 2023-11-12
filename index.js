@@ -31,8 +31,7 @@ const data = require("./data.json");
       ...data,
       [new Date().toLocaleDateString()]: jsonRes.list[0].components.pm2_5,
     };
-    console.log("newData", newData);
-    await fs.writeFile("../data.json", JSON.stringify(newData));
+    await fs.writeFile("./data.json", JSON.stringify(newData));
     core.setOutput("noOfcigarette", jsonRes.list[0].components.pm2_5);
   } catch (error) {
     core.setFailed(error.message);
