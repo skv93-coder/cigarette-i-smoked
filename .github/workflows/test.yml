@@ -7,8 +7,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: create file
-        run: touch text.txt
+      - name: Count pollution cigarett
+        uses: "./" # Uses an action in the root directory
+        id: hello
+      - name: echo the pm25 in delhi
+        run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
+      - name: status
+        run: git status
       - name: Commit files
         run: |
           git config user.name shubham-sharma
