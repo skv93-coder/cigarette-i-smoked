@@ -15,4 +15,4 @@ jobs:
           git config user.email shbh541@gmail.com
           git add .
           git commit -m "generated"
-          git push origin --follow-tags --atomic
+          git push
