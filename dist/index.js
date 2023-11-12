@@ -30129,7 +30129,7 @@ module.exports = require("zlib");
 /***/ ((module) => {
 
 "use strict";
-module.exports = {"date":"78"};
+module.exports = JSON.parse('{"date":"78","11/12/2023":82.62}');
 
 /***/ })
 

@@ -12,8 +12,6 @@ jobs:
         id: hello
       - name: echo the pm25 in delhi
         run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
-      - name: status
-        run: git status
       - name: Commit files
         run: |
           git config user.name shubham-sharma
