@@ -2,17 +2,17 @@ on: ["push"]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to count pollution cigarett
+    name: A job to count pollution cigarette
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: run npm
         run: npm i
-      - name: Count pollution cigarett
+      - name: Count pollution cigarette
         uses: "./" # Uses an action in the root directory
-        id: cigarettId
+        id: cigaretteId
       - name: echo the pm25 in delhi
-        run: echo "The pm25 at delhi right now is ${{steps.cigarettId.outputs.noOfcigarette}}"
+        run: echo "The pm25 at delhi right now is ${{steps.cigaretteId.outputs.noOfcigarette}}"
       - name: Commit files
         run: |
           git config user.name shubham-sharma
