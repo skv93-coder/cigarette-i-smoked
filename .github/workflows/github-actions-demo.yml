@@ -6,13 +6,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: run npm
+        run: npm i
       - name: Count pollution cigarett
         uses: "./" # Uses an action in the root directory
         id: cigarettId
       - name: echo the pm25 in delhi
         run: echo "The pm25 at delhi right now is ${{steps.cigarettId.outputs.noOfcigarette}}"
-      - name: run npm
-        run: npm i
       - name: Commit files
         run: |
           git config user.name shubham-sharma
