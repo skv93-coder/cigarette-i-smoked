@@ -1,18 +1,23 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  schedule:
+    - cron: "*/6 * * * *"
+
 jobs:
-  Explore-GitHub-Actions:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      - run: curl www.google.com
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
+      - name: Checkout
         uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: Count pollution cigarett
+        uses: "./" # Uses an action in the root directory
+        id: hello
+      - name: echo the pm25 in delhi
+        run: echo "The pm25 at delhi right now is ${{steps.hello.outputs.noOfcigarette}}"
+      - name: Commit files
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          git config user.name shubham-sharma
+          git config user.email shbh541@gmail.com
+          git add .
+          git commit -m "generated"
+          git push

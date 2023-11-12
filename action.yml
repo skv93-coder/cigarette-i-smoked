@@ -1,0 +1,9 @@
+Name: cigarett
+description: 'This action will fetch pollution value and give back no of cigarett'
+outputs:
+  noOfcigarette: # 
+    description: 'No of cigararttes required '
+    value: 'This is value'
+runs:
+  using: 'node20'
+  main: './dist/index.js'        
