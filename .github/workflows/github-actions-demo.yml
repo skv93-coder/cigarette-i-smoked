@@ -1,6 +1,10 @@
-on: ["push"]
+name: Amuseing way of keeping track of pollution
+on:
+  # Triggers the workflow every 5 minutes
+  schedule:
+    - cron: "0 8 * * *"
 jobs:
-  hello_world_job:
+  count_pollution_cigarette:
     runs-on: ubuntu-latest
     name: A job to count pollution cigarette
     steps:
