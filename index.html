@@ -6,7 +6,7 @@
     <!-- <script src="./data.js"></script> -->
     <script type="module">
       import data from "./data.json" assert { type: "json" };
-      document.onload(() => {
+      window.onload(() => {
         document.getElementsByTagName("body")[0].append(data);
       });
     </script>
