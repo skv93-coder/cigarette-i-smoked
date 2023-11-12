@@ -9,7 +9,7 @@
       window.onload = (event) => {
         let body = "";
         Object.entries(data).forEach((d) => {
-          body += d[0] + ": " + Number(d[1]) / 22;
+          body += d[0] + ": " + (Number(d[1]) / 22).toFixed(2);
           body += "<br/>";
         });
 
