@@ -6,9 +6,9 @@
     <!-- <script src="./data.js"></script> -->
     <script type="module">
       import data from "./data.json" assert { type: "json" };
-      window.onload(() => {
+      window.onload = (event) => {
         document.getElementsByTagName("body")[0].append(data);
-      });
+      };
     </script>
     <title>Cigarette</title>
   </head>
