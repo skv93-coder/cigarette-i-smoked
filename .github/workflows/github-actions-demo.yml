@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: run npm
+        run: npm i
       - name: Count pollution cigarett
         uses: "./" # Uses an action in the root directory
         id: hello
