@@ -1,7 +1,7 @@
 name: Amuseing way of keeping track of pollution
 on:
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "0 12 * * *"
 jobs:
   count_pollution_cigarette:
     runs-on: ubuntu-latest
