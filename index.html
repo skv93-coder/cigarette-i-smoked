@@ -3,20 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="./data.js"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script type="module">
       import data from "./data.json" assert { type: "json" };
       window.onload = (event) => {
         let body = "";
         Object.entries(data).forEach((d) => {
-          body += d[0] + ": " + (Number(d[1]) / 22).toFixed(2);
-          body += "<br/>";
+          body += `
+        <li class="flex items-center space-x-4 mb-2">
+          <div class="text-gray-800 font-bold">${new Date(
+            d[0]
+          ).toDateString()}</div>
+          <div class="mx-2">•</div>
+          <div class="text-blue-500 font-bold">${(Number(d[1]) / 22).toFixed(
+            2
+          )}</div>
+        </li>`;
         });
 
-        document.getElementsByTagName("body")[0].innerHTML = body;
+        document.getElementById("data_box").innerHTML = body;
       };
     </script>
     <title>Cigarette</title>
   </head>
-  <body></body>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
+      <div class="text-xl font-semibold mb-4">Date Values</div>
+
+      <!-- Date-Value List -->
+      <ul id="data_box">
+        <!-- Replace the list items with your dynamic data -->
+
+        <!-- Add more list items as needed -->
+      </ul>
+    </div>
+  </body>
 </html>
