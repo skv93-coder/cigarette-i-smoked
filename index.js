@@ -12,7 +12,7 @@ const data = require("./data.json");
     const time = new Date().toTimeString();
     core.setOutput("time", time);
     const res = await fetch(
-      "https://api.waqi.info/feed/geo:31.64;74.87/?token=40862c856cd1e5b206f1634c8d66f18edeb15900"
+      "https://api.waqi.info/feed/amritsar/?token=59001329754abfc9a23f07f4daf19a54f43f74d0"
     );
     const jsonRes = await res.json();
 
