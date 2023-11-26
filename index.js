@@ -8,7 +8,6 @@ const data = require("./data.json");
   try {
     const time = new Date().toTimeString();
     core.setOutput("time", time);
-    console.log("process.env.API_TOKEN", process.env.API_TOKEN);
     const res = await fetch(
       `https://api.waqi.info/feed/amritsar/?token=${process.env.API_TOKEN}`
     );
