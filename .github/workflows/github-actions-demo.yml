@@ -13,6 +13,8 @@ jobs:
         run: npm i
       - name: Count pollution cigarette
         uses: "./" # Uses an action in the root directory
+        env: # Or as an environment variable
+          API_TOKEN: ${{ secrets.API_TOKEN }}
         id: cigaretteId
       - name: echo the pm25 in delhi
         run: echo "The pm25 at delhi right now is ${{steps.cigaretteId.outputs.noOfcigarette}}"
