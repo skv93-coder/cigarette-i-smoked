@@ -6,13 +6,10 @@ const data = require("./data.json");
 
 (async function () {
   try {
-    // `who-to-greet` input defined in action metadata file
-    // const nameToGreet = core.getInput('who-to-greet');
-    // console.log(`Hello ${nameToGreet}!`);
     const time = new Date().toTimeString();
     core.setOutput("time", time);
     const res = await fetch(
-      "https://api.waqi.info/feed/amritsar/?token=59001329754abfc9a23f07f4daf19a54f43f74d0"
+      `https://api.waqi.info/feed/amritsar/?token=${process.env.API_TOKEN}`
     );
     const jsonRes = await res.json();
 
