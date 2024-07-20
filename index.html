@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module">
-      import data from "./data.json" assert { type: "json" };
-      window.onload = (event) => {
-        let body = "";
-        Object.entries(data).forEach((d) => {
-          body += `
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    window.onload = async(event) => {
+      let body = "";
+      let data = await fetch('./data.json')
+      data = await data.json()
+      Object.entries(data).forEach((d) => {
+        body += `
         <li class="flex items-center space-x-4 mb-2">
           <div class="text-gray-800 font-bold">${new Date(
-            d[0]
-          ).toDateString()}</div>
+          d[0]
+        ).toDateString()}</div>
           <div class="mx-2">•</div>
           <div class="text-blue-500 font-bold">${(Number(d[1]) / 22).toFixed(
-            2
-          )}</div>
+          2
+        )}</div>
         </li>`;
-        });
+      });
 
-        document.getElementById("data_box").innerHTML = body;
-      };
-    </script>
-    <title>Cigarette</title>
-  </head>
-  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
-      <div class="text-xl font-semibold mb-4">
-        No of 🚬 i smoked on differant days 😃
-      </div>
+      document.getElementById("data_box").innerHTML = body;
+    };
+  </script>
+  <title>Cigarette</title>
+</head>
 
-      <!-- Date-Value List -->
-      <ul id="data_box">
-        <!-- Replace the list items with your dynamic data -->
-
-        <!-- Add more list items as needed -->
-      </ul>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
+    <div class="text-xl font-semibold mb-4">
+      No of 🚬 i smoked on differant days 😃
     </div>
-  </body>
+
+    <!-- Date-Value List -->
+    <ul id="data_box">
+      <!-- Replace the list items with your dynamic data -->
+
+      <!-- Add more list items as needed -->
+    </ul>
+  </div>
+</body>
+
 </html>
